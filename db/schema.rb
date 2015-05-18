@@ -45,22 +45,4 @@ ActiveRecord::Schema.define(version: 20150518101347) do
     t.integer "rank",          limit: 4
   end
 
-  create_table "vote_presidents", force: :cascade do |t|
-    t.integer  "nominee_id", limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  add_index "vote_presidents", ["nominee_id"], name: "fk_rails_fbed57cc7a", using: :btree
-
-  create_table "votes", force: :cascade do |t|
-    t.integer  "nominee_id", limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  add_index "votes", ["nominee_id"], name: "fk_rails_cdc676101b", using: :btree
-
-  add_foreign_key "vote_presidents", "nominees"
-  add_foreign_key "votes", "nominees"
 end
