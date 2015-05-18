@@ -1,0 +1,21 @@
+
+<div class="teams index">
+	<h1>PUA'IKEANA'S EXECUTIVE BOARD</h1>
+	<% @teams.each do |team| %>
+		<table>
+			<tr>
+			<td>
+				
+				<img src="<%= image_path(team.photo_path)%>" width=200 height=400>
+			</td>
+			<td>
+				<h4><%= team.position %></h4>
+				<%= team.name%><br>
+				<%= team.major%><br>
+				<%= team.year_standing%>
+			</td>
+		</tr>
+		</table>
+	<% end %>
+
+</div>
