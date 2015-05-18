@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150518121648) do
     t.text "time",        limit: 65535
     t.text "date",        limit: 65535
     t.text "description", limit: 65535
+    t.text "photo_path",  limit: 65535
   end
 
   create_table "reserves", force: :cascade do |t|

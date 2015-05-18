@@ -13,6 +13,7 @@ td{padding-left:5em}
 
 			<td>
 				  <h4><%= event.event_name%></h4>
+				  <img src="<%= image_path(event.photo_path)%>" width=500 height=400>
 				  <i><%= event.description%></i><br>
 				  <%= event.location%><br>
 				  <%= event.date %><br>
