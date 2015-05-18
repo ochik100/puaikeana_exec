@@ -1,2 +1,52 @@
-<h1>Shops#details</h1>
-<p>Find me in app/views/shops/details.html.erb</p>
+<% content_for :title do %>Pua'ikeana | Shop <% end %>
+<style>
+tr{border-collapse:separate; border-spacing:5em;}
+td{padding-left:5em}
+
+</style>
+<body>
+<div class="teams details">
+	<h1>PUA'IKEANA'S MERCHANDISE</h1>
+		<table>
+			<tr class="spacer">
+			<td>
+				
+				<img src="<%= image_path(@shop.photo_path)%>" width=200 height=400>
+			</td>
+			<td>
+				  <h4><%= @shop.item_name%></h4>
+				  <%= @shop.price%><br>
+
+				  <%= form_for(:reserve, :url => {:action => 'reserve'}) do |f| %>
+					<td>
+						<select class="form-control">
+						    <option value="Small">Small</option>
+						    <option value="Medium">Medium</option>
+						    <option value="Large">Large</option>
+						</select>
+
+					</td>
+
+				        <td><%= f.text_field(:email) %></td>
+					<td>
+						<div class="form-buttons">
+					      <%= submit_tag("Reserve Shirt") %>
+					    </div>
+					</td>
+				  <% end %>
+				
+			</td>
+		</tr>
+		<br>
+		</table>
+
+</div>
+</body>
+
+
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+</script>

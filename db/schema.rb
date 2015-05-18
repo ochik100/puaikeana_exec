@@ -11,23 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518101347) do
+ActiveRecord::Schema.define(version: 20150518121648) do
 
-  create_table "nominees", force: :cascade do |t|
-    t.string   "first_name",            limit: 255
-    t.string   "last_name",             limit: 255
-    t.string   "email",                 limit: 255
-    t.boolean  "president_candidate",   limit: 1
-    t.boolean  "vp_candidate",          limit: 1
-    t.boolean  "secretary_candidate",   limit: 1
-    t.boolean  "treasurer_candidate",   limit: 1
-    t.boolean  "marketing_candidate",   limit: 1
-    t.boolean  "fundraising_candidate", limit: 1
-    t.boolean  "community_candidate",   limit: 1
-    t.boolean  "luau_candidate",        limit: 1
-    t.boolean  "cultural_candidate",    limit: 1
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+  create_table "events", force: :cascade do |t|
+    t.text "event_name",  limit: 65535
+    t.text "location",    limit: 65535
+    t.text "time",        limit: 65535
+    t.text "date",        limit: 65535
+    t.text "description", limit: 65535
+  end
+
+  create_table "reserves", force: :cascade do |t|
+    t.text "item_name", limit: 65535
+    t.text "size",      limit: 65535
+    t.text "email",     limit: 65535
   end
 
   create_table "shops", force: :cascade do |t|

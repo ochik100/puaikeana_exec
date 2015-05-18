@@ -1,2 +1,36 @@
-<h1>Shops#items</h1>
-<p>Find me in app/views/shops/items.html.erb</p>
+<% content_for :title do %>Pua'ikeana | Shop <% end %>
+<style>
+tr{border-collapse:separate; border-spacing:5em;}
+td{padding-left:5em}
+
+</style>
+<body>
+<div class="teams index">
+	<h1>PUA'IKEANA'S MERCHANDISE</h1>
+	<% @shops.each do |shop| %>
+		<table>
+			<tr class="spacer">
+			<td>
+				
+				<img src="<%= image_path(shop.photo_path)%>" width=200 height=400>
+			</td>
+			<td>
+				  <h4><%= link_to(shop.item_name, {:action => 'details' , :id => shop.id},  :class => 'action details') %></h4>
+				  <%= shop.price%><br>
+				
+			</td>
+		</tr>
+		<br>
+		</table>
+	<% end %>
+
+</div>
+</body>
+
+
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+</script>

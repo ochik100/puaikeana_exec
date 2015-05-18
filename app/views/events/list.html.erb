@@ -1,0 +1,29 @@
+<% content_for :title do %>Pua'ikeana | Events <% end %>
+<style>
+tr{border-collapse:separate; border-spacing:5em;}
+td{padding-left:5em}
+
+</style>
+<body>
+<div class="events list">
+	<h1>PUA'IKEANA'S EVENTS</h1>
+	<% @events.each do |event| %>
+		<table>
+			<tr class="spacer">
+
+			<td>
+				  <h4><%= event.event_name%></h4>
+				  <i><%= event.description%></i><br>
+				  <%= event.location%><br>
+				  <%= event.date %><br>
+				  <%= event.time%>
+
+				
+			</td>
+		</tr>
+		<br>
+		</table>
+	<% end %>
+
+</div>
+</body>

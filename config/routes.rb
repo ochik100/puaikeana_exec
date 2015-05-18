@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'events/list'
+
   get 'shops/items'
 
   get 'shops/details'
@@ -7,5 +9,5 @@ Rails.application.routes.draw do
   get 'shops/reserve'
 
   root to: 'visitors#index'
-    match '(puaikeana):controller(/:action(/:id))', :via => [:get, :post]
+    match ':controller(/:action(/:id))', :via => [:get, :post]
 end
