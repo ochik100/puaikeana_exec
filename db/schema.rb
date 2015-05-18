@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518065831) do
+ActiveRecord::Schema.define(version: 20150518101347) do
+
+  create_table "nominees", force: :cascade do |t|
+    t.string   "first_name",            limit: 255
+    t.string   "last_name",             limit: 255
+    t.string   "email",                 limit: 255
+    t.boolean  "president_candidate",   limit: 1
+    t.boolean  "vp_candidate",          limit: 1
+    t.boolean  "secretary_candidate",   limit: 1
+    t.boolean  "treasurer_candidate",   limit: 1
+    t.boolean  "marketing_candidate",   limit: 1
+    t.boolean  "fundraising_candidate", limit: 1
+    t.boolean  "community_candidate",   limit: 1
+    t.boolean  "luau_candidate",        limit: 1
+    t.boolean  "cultural_candidate",    limit: 1
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.text "item_name",  limit: 65535
+    t.text "price",      limit: 65535
+    t.text "photo_path", limit: 65535
+  end
 
   create_table "teams", force: :cascade do |t|
     t.text    "name",          limit: 65535
@@ -22,4 +45,22 @@ ActiveRecord::Schema.define(version: 20150518065831) do
     t.integer "rank",          limit: 4
   end
 
+  create_table "vote_presidents", force: :cascade do |t|
+    t.integer  "nominee_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "vote_presidents", ["nominee_id"], name: "fk_rails_fbed57cc7a", using: :btree
+
+  create_table "votes", force: :cascade do |t|
+    t.integer  "nominee_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "votes", ["nominee_id"], name: "fk_rails_cdc676101b", using: :btree
+
+  add_foreign_key "vote_presidents", "nominees"
+  add_foreign_key "votes", "nominees"
 end
