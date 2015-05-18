@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150518180735) do
 
   create_table "images", force: :cascade do |t|
     t.text    "photo_path", limit: 65535
-    t.integer "order",      limit: 4
+    t.integer "rank",       limit: 4
   end
 
   create_table "reserves", force: :cascade do |t|

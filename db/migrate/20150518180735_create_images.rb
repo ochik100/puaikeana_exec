@@ -3,7 +3,7 @@ class CreateImages < ActiveRecord::Migration
     create_table :images do |t|
 
       t.text "photo_path"
-      t.integer "order"
+      t.integer "rank"
     end
   end
 

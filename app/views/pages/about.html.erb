@@ -6,7 +6,11 @@
 <body>
 <div class="container">
 <h3>OUR MISSION</h3>
-<img src=/assets/logo.png width=200 height=400>
+<% @images = Image.sorted %>
+
+<% Image.where("rank = 4").find_each do |image|%>
+<img src="<%= image_path(image.photo_path)%>"width=200 height=400>
+<% end %>
 <p>
 	Pua'ikeana is the Hawai'i Club at Chapman University. <br>We are dedicated to educating students and the community about the Hawaiian culture through social events and community service. <br>Our goal is to spread the aloha spirit wherever we go!
 </p>
