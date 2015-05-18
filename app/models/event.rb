@@ -1,3 +1,3 @@
 class Event < ActiveRecord::Base
-	scope :sorted, lambda {order("events.date ASC")}
+	scope :sorted, lambda {order("events.date DSC")}
 end
