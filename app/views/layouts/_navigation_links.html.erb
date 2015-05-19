@@ -1,6 +1,7 @@
 <%# add navigation links to this file %>
-<li><a href="/pages/about">About Us</a></li>
-<li><a href="/our_team/index">Meet the Team</a></li>
-<li><a href="/events/list">Events</a></li>
-<li><a href="/shops/items">Shop</a></li>
+<li><%= link_to "About Us", controller: "pages", action: "about"%></li>
+<li><%= link_to "Meet the Team", controller: "our_team", action: "index"%></li>
+<li><%= link_to "Events", controller: "events", action: "list"%></li>
+<li><%= link_to "Shop", controller: "shops", action: "items"%></li>
+
 
