@@ -23,6 +23,7 @@
   <br>
   <body>
 
+
 	  <div id="myCarousel" class="carousel slide" data-ride="carousel">
 	    <!-- Indicators -->
 	    <ol class="carousel-indicators">
@@ -31,21 +32,28 @@
 	      <li data-target="#myCarousel" data-slide-to="2"></li>
 	    </ol>
 
-	    
+	   
 	    <!-- Wrapper for slides -->
 	    <div class="carousel-inner" role="listbox">
 	      <div class="item active">
-	        <img src="/assets/hawaii_club.jpg" width="460" height="345">
+	      	 <% Image.where("rank = 1").find_each do |image|%>
+	        <img src="<%= image_path(image.photo_path)%>"width="460" height="345">
+	        <%end%>
 	      </div>
 
 	      <div class="item">
-	        <img src="/assets/hallway.jpg" width="460" height="345">
+	        <% Image.where("rank = 2").find_each do |image|%>
+	        <img src="<%= image_path(image.photo_path)%>"width="460" height="345">
+	        <%end%>
 	      </div>
 	    
 	      <div class="item">
-	        <img src="/assets/kupuae.jpg" width="460" height="345">
+	        <% Image.where("rank = 3").find_each do |image|%>
+	        <img src="<%= image_path(image.photo_path)%>"width="460" height="345">
+	        <%end%>
 	      </div>
 	    </div>
+	    
 
 	    <!-- Left and right controls -->
 	    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
